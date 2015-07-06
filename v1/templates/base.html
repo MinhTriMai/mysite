@@ -1,0 +1,46 @@
+<html>
+<head>
+	{% load staticfiles %}
+	<link type="text/css" rel="Stylesheet" href="{% static 'css/base.css' %}"/>
+	<link type="text/css" rel="Stylesheet" href="{% static 'css/foundation/foundation.min.css' %}" />
+	<link type="text/css" rel="stylesheet" href="{% static 'css/foundation/normalize.css' %}" />
+	{% block extrahead %}
+	{% endblock %}
+</head>
+<body>
+	<div id="header">
+		<nav class="top-bar" data-topbar role="navigation">
+			<ul class="title-area">
+				<li class="name">
+					<h1><a target="_parent" href="/" runat="server" id="ciscerLogo"><img class="logo" src="{% static 'images/logo.png' %}" /></a></h1>
+				</li>
+				<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+			</ul>
+
+			<section class="top-bar-section">
+				<!-- Left Nav Section -->
+				<!-- Right Nav Section -->
+				<ul class="text-center right">
+					<li class="menu-item"><a href="/about/">About</a></li>
+					<li class="menu-item"><a href="/profile/">Mai's Profile</a></li>
+					<li class="menu-item"><a href="/blogs/">Blogs</a></li>
+					<li class="menu-item"><a href="/contact/">Contact</a></li>
+				</ul>            
+			</section>
+		</nav>
+	</div>
+	<div id="pageContainer">
+		{% block content %}
+		{% endblock %}
+	</div>
+	<div id="footer">		
+	</div>	
+</body>
+<script src="{% static 'js/foundation/vendor/jquery.js' %}"></script>
+<script src="{% static 'js/foundation/foundation.min.js' %}"></script>
+	<script>
+		Foundation.global.namespace = '';
+		$(document).foundation();
+	</script>
+</html>

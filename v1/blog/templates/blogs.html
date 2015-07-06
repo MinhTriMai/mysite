@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+	<div id="topicslist">
+		{% for topic in topics %}
+		<h3>{{topic}}</h3>
+		{%endfor%}
+	</div>
+	<div id="blogslist">
+		{% for blog in blogs %}
+		<p><a href="/blog/view/{{blog.slug}}.html">{{blog}}</a></p>
+		{%endfor%}
+	</div>
+{% endblock %}
