@@ -1,13 +1,58 @@
 {% extends "base.html" %}
 {% block content %}
-	<div id="topicslist">
+	<div class="show-for-small-only">
+		<a href="#" class="button" data-dropdown="drop">Link &raquo;</a>
+		<ul id="drop" class="accordion content f-dropdown" data-dropdown-content data-accordion>
 		{% for topic in topics %}
-		<h3>{{topic}}</h3>
-		{%endfor%}
+			<li class="accordion-navigation" style="text-align:left;">
+				<a href="#{{topic.slug}}">{{topic}}</a>
+				<div id="{{topic.slug}}" class="content">
+				  {% for blog in topic.blog_set.all %}
+					<p><a href="{{blog.get_absolute_url}}">{{blog}}</a></p>
+				  {%endfor%}
+				</div>
+			</li>
+		{%endfor%}			  			  
+		</ul>
 	</div>
-	<div id="blogslist">
+	<div id="left-menu" class="small-12 medium-4 columns hide-for-small-only">
+		<div id="topic">
+			<ul class="accordion" data-accordion>
+			{% for topic in topics %}
+				<li class="accordion-navigation" style="text-align:left;">
+					<a href="#{{topic.slug}}">{{topic}}</a>
+					<div id="{{topic.slug}}" class="content">
+					  {% for blog in topic.blog_set.all %}
+						<p><a href="{{blog.get_absolute_url}}">{{blog}}</a></p>
+					  {%endfor%}
+					</div>
+				</li>
+			{%endfor%}			  			  
+			</ul>			
+		</div>		
+		<div id="tag">
+			<ul class="inline-list"	
+				{% for tag in tags %}
+					{% if forloop.counter|divisibleby:2 %}
+						<li><a class="label" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
+					{% else %}
+						<li><a class="label secondary" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
+					{%endif%}
+				{%endfor%}				
+			</ul>
+		</div>
+	</div>
+	<div id="blogslist" class="small-12 medium-8 columns">
 		{% for blog in blogs %}
-		<p><a href="/blog/view/{{blog.slug}}.html">{{blog}}</a></p>
+			<p><a href="{{blog.get_absolute_url}}">{{blog}}</a></p>
+			<p>{{blog.content}}</p>
 		{%endfor%}
+		<br />
+		{% if page.has_previous %}
+		<a href="/blogs/{{ page.previous_page_number }}/">Previous Page</a>
+		{% endif %}
+		{% if page.has_next %}
+		<a href="/blogs/{{ page.next_page_number }}/">Next Page</a>
+		{% endif %}
 	</div>
 {% endblock %}

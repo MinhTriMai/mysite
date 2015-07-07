@@ -8,7 +8,9 @@ class Blog(models.Model):
     content = models.TextField()
     date = models.DateField(db_index=True, auto_now_add=True)
     topic = models.ForeignKey('blog.Topic')
-    tag = models.ManyToManyField('blog.Tag')
+    tag = models.ManyToManyField('blog.Tag', blank=True)
+    image = models.ImageField(upload_to="user_upload/images/", blank=True)
+    file = models.FileField(upload_to="user_upload/files/", blank=True)
 	
     def __str__(seft):
         return seft.title    

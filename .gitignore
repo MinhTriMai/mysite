@@ -1,2 +1,3 @@
 v1/v1/settings.py
 *.pyc
+v1/db.sqlite3
