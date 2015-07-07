@@ -107,4 +107,4 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-FORCE_SCRIPT_NAME = ''
+STATIC_ROOT = '/home2/ciscerco/src/myproject/mysite/v1/'
