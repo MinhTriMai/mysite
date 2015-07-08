@@ -25,6 +25,8 @@ def blogs(request, selected_page=1):
 def view_blog(request, slug):
     print(slug)
     return render_to_response('blog.html', {
+        'topics': Topic.objects.all().order_by('name'),
+		'tags': Tag.objects.all().order_by('name'),
         'blog': get_object_or_404(Blog, slug=slug)
     })
 	

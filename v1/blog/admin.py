@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import Blog, Topic, Tag
+from blog.models import Blog, Topic, Tag, BlogImage, BlogFile
 from django.template.defaultfilters import slugify
 
 # Register your models here.
@@ -18,3 +18,5 @@ class TagAdmin(admin.ModelAdmin):
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Topic, TopicAdmin)
 admin.site.register(Tag, TagAdmin)
+admin.site.register(BlogImage)
+admin.site.register(BlogFile)

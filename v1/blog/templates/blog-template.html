@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block extrahead %}
+	{% load staticfiles %}
+	<link type="text/css" rel="Stylesheet" href="{% static 'css/blog-template.css' %}"/>
+{% endblock %}
+{% block content %}
+	<div class="off-canvas-wrap" data-offcanvas>
+	  <div class="inner-wrap">
+		<nav class="tab-bar show-for-small-only">
+		  <section class="left-small">
+			<a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+		  </section>
+		  <section class="middle tab-bar-section">
+			<h1 class="title">Blogs</h1>
+		  </section>
+		  <section class="right-small">
+			<a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+		  </section>
+		</nav>
+		<aside class="left-off-canvas-menu show-for-small-only">
+		    <label class="menu-group-title">Category</label>
+			<ul class="accordion off-canvas-list" data-accordion>
+			{% for topic in topics %}
+				<li class="accordion-navigation" style="text-align:left;">
+					<a href="#{{topic.slug}}">{{topic}}</a>
+					<div id="{{topic.slug}}" class="content menu-links">
+					  {% for blog in topic.blog_set.all %}
+						<a href="{{blog.get_absolute_url}}">{{blog}}</a>
+					  {%endfor%}
+					</div>
+				</li>
+			{%endfor%}			  			  
+			</ul>
+		</aside>
+		<aside class="right-off-canvas-menu show-for-small-only">
+			<label class="menu-group-title">Tag</label>
+			<ul class="inline-list">
+				{% for tag in tags %}
+					{% if forloop.counter|divisibleby:2 %}
+						<li><a class="label" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
+					{% else %}
+						<li><a class="label secondary" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
+					{%endif%}
+				{%endfor%}				
+			</ul>
+		</aside>
+		<section class="main-section">
+		  <!-- content goes here -->
+		  <div id="left-menu" class="small-12 medium-4 large-3 columns hide-for-small-only">
+			<div id="topic">
+				<label class="menu-group-title">Category</label>
+				<ul class="accordion" data-accordion>
+				{% for topic in topics %}
+					<li class="accordion-navigation" style="text-align:left;">
+						<a href="#{{topic.slug}}">{{topic}}</a>
+						<div id="{{topic.slug}}" class="content menu-links">
+						  {% for blog in topic.blog_set.all %}
+							<a href="{{blog.get_absolute_url}}">{{blog}}</a>
+						  {%endfor%}
+						</div>
+					</li>
+				{%endfor%}			  			  
+				</ul>			
+			</div>		
+			<div id="tag">
+				<label class="menu-group-title">Tag</label>
+				<ul class="inline-list">
+					{% for tag in tags %}
+						{% if forloop.counter|divisibleby:2 %}
+							<li><a class="label" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
+						{% else %}
+							<li><a class="label secondary" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
+						{%endif%}
+					{%endfor%}
+				</ul>
+			</div>
+		  </div>
+		{% block blog-content %}
+		{% endblock %}
+		{% block blog-footer %}
+		{% endblock %}
+		</section>
+
+		<a class="exit-off-canvas"></a>
+	  </div>
+	</div>		
+{% endblock %}

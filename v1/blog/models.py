@@ -5,19 +5,32 @@ from django.db.models import permalink
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
-    content = models.TextField()
+    content = models.TextField(default='', blank=True)
+    description = models.TextField(default='', blank=True)
     date = models.DateField(db_index=True, auto_now_add=True)
     topic = models.ForeignKey('blog.Topic')
     tag = models.ManyToManyField('blog.Tag', blank=True)
-    image = models.ImageField(upload_to="user_upload/images/", blank=True)
-    file = models.FileField(upload_to="user_upload/files/", blank=True)
+    images = models.ManyToManyField('blog.BlogImage', blank=True)
+    files = models.ManyToManyField('blog.BlogFile', blank=True)
 	
     def __str__(seft):
-        return seft.title    
+        return seft.title
 		
     @permalink
     def get_absolute_url(self):
         return ('view_blog_post', None, { 'slug': self.slug })
+		
+class BlogImage(models.Model):
+    image = models.ImageField(upload_to="static/user_upload/images/")
+	
+    def __str__(seft):
+        return seft.image.url
+	
+class BlogFile(models.Model):
+    file = models.FileField(upload_to="static/user_upload/files/")
+	
+    def __str__(seft):
+        return seft.file.url
 		
 class Topic(models.Model):
     name = models.CharField(max_length=100, db_index=True)
