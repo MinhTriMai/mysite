@@ -7,19 +7,29 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0005_auto_20150706_1144'),
+        ('blog', '0001_initial'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='blog',
             name='file',
-            field=models.FileField(upload_to=b'/user_upload/files/', blank=True),
+            field=models.FileField(upload_to=b'user_upload/files/', blank=True),
         ),
         migrations.AddField(
             model_name='blog',
             name='image',
-            field=models.ImageField(upload_to=b'/user_upload/images/', blank=True),
+            field=models.ImageField(upload_to=b'user_upload/images/', blank=True),
+        ),
+        migrations.AddField(
+            model_name='tag',
+            name='description',
+            field=models.TextField(max_length=500, blank=True),
+        ),
+        migrations.AddField(
+            model_name='topic',
+            name='description',
+            field=models.TextField(max_length=500, blank=True),
         ),
         migrations.AlterField(
             model_name='blog',
