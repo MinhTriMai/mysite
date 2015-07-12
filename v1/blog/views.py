@@ -8,7 +8,7 @@ def blogs(request, selected_page=1):
     # Get all blog posts
     blogs = Blog.objects.all().filter(hiden=False).order_by('date')
     # Add pagination
-    pages = Paginator(blogs, 3)
+    pages = Paginator(blogs, 5)
     # Get the specified page
     try:
         returned_page = pages.page(selected_page)
