@@ -1,0 +1,32 @@
+body{
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+}
+
+#pageContainer{
+	background: url("/static/images/home_background.jpg") no-repeat top center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  height: 100%;
+}
+
+#content_header
+{
+	margin: 20px 50px;
+	background-color: rgba(73, 118, 119, 0.6);
+	border-radius: 5px;
+}
+
+.img-head{
+	width: 50%;
+	min-width: 350px;	
+}
+
+.main{
+	margin: 20px 50px;	  
+	display: table;
+	background-color: rgba(73, 118, 119, 0.6);	
+}

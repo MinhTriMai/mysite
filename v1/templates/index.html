@@ -1,4 +1,39 @@
 {% extends "base.html" %}
+{% block extrahead %}
+	{% load staticfiles %}
+	<link type="text/css" rel="Stylesheet" href="{% static 'css/index.css' %}"/>
+	<link type="text/css" rel="Stylesheet" href="{% static 'css/cloud.css' %}"/>
+{% endblock %}
 {% block content %}
-	<a href="/blogs">View all blogs</a>
+	<div id="clouds">     
+		<div class="cloud x1"></div>
+		<div class="cloud x2"></div>
+		<div class="cloud x3"></div>
+		<div class="cloud x4"></div>
+		<div class="cloud x5"></div>
+	</div>
+	<div id="content">
+		<div id="content_header" class="text-center">
+			<img class="img-head" src="{% static '/static/images/home_header.png' %}"/>
+		</div>
+		<div class="main">
+			<div class="small-6 medium-3 columns text-center">
+				<img style="width:20%;min-width: 40px; margin-top:10px;" src="{% static '/static/images/home_icon.png' %}"/>
+				<a href="/about/"><h3 style="color:white;">About me</h3></a>
+			</div>
+			<div class="small-6 medium-3 columns text-center">
+				<img style="width:20%;min-width: 40px; margin-top:10px;" src="{% static '/static/images/home_icon.png' %}"/>
+				<a href="/about/"><h3 style="color:white;">My projects</h3></a>				
+			</div>
+			<div class="small-6 medium-3 columns text-center">
+				<img style="width:20%;min-width: 40px; margin-top:10px;" src="{% static '/static/images/home_icon.png' %}"/>
+				<a href="/about/"><h3 style="color:white;">My blogs</h3></a>				
+			</div>
+			<div class="small-6 medium-3 columns text-center">
+				<img style="width:20%;min-width: 40px; margin-top:10px;" src="{% static '/static/images/home_icon.png' %}"/>
+				<a href="/about/"><h3 style="color:white;">Contact me</h3></a>				
+			</div>
+		</div>
+	</div>
+	
 {% endblock %}

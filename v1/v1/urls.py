@@ -20,6 +20,7 @@ from django.views.generic.base import TemplateView
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 	url(r'^$', TemplateView.as_view(template_name='index.html')),
+	url(r'^about/$', TemplateView.as_view(template_name='about.html')),
 	url(r'^blogs/$', 'blog.views.blogs'),
 	url(r'^blogs/(?P<selected_page>\d+)/?$', 'blog.views.blogs'),
     url(
