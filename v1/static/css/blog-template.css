@@ -8,10 +8,7 @@ html, body
 	padding-left: 0;
 	padding-right: 0;
 	background-color: #333;
-	border-right: 1px solid transparent;	
-	position: absolute;
-	top: 0;
-	left: 0;
+	border-right: 1px solid transparent;
 	bottom: 0;
 }
 
@@ -60,4 +57,12 @@ ul.off-canvas-list .menu-links > a:hover{
 	font-style: italic;
 	margin: 0;
 	padding: 0.2rem 0.5rem;
+}
+
+ul.tags-list{
+	margin: -10px 5px 15px;
+}
+
+ul.tags-list > li{
+	margin-top: 2px;
 }

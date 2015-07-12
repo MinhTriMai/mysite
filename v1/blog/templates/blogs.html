@@ -3,7 +3,7 @@
 	{% load staticfiles %}
 	<link type="text/css" rel="Stylesheet" href="{% static 'css/blogs.css' %}"/>
 {% endblock %}
-{% block blog-content %}
+{% block content %}
 	<div id="blogslist-container" class="small-12 medium-8 large-9 columns">
 		<ul id="blogslist">
 			{% for blog in blogs %}
@@ -13,15 +13,15 @@
 			</li>
 			{%endfor%}
 		</ul>
-	</div>
-	<br />
-	<div class="text-center">
-		{% if page.has_previous %}
-		<a href="/blogs/{{ page.previous_page_number }}/">&laquo;Previous Page</a>
-		<span>&nbsp;&nbsp;&nbsp;</span>
-		{% endif %}			
-		{% if page.has_next %}
-		<a href="/blogs/{{ page.next_page_number }}/">Next Page&raquo;</a>
-		{% endif %}
-	</div>
+		<br />
+		<div class="text-center">
+			{% if page.has_previous %}
+			<a href="/blogs/{{ page.previous_page_number }}/">&laquo;Previous Page</a>
+			<span>&nbsp;&nbsp;&nbsp;</span>
+			{% endif %}			
+			{% if page.has_next %}
+			<a href="/blogs/{{ page.next_page_number }}/">Next Page&raquo;</a>
+			{% endif %}
+		</div>
+	</div>	
 {% endblock %}

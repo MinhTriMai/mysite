@@ -21,12 +21,17 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 	url(r'^$', TemplateView.as_view(template_name='index.html')),
 	url(r'^about/$', TemplateView.as_view(template_name='about.html')),
+	url(r'^contact/$', TemplateView.as_view(template_name='contact.html')),
 	url(r'^blogs/$', 'blog.views.blogs'),
 	url(r'^blogs/(?P<selected_page>\d+)/?$', 'blog.views.blogs'),
     url(
         r'^blog/view/(?P<slug>[^\.]+).html', 
         'blog.views.view_blog', 
         name='view_blog_post'),
+    url(
+        r'^project/view/(?P<slug>[^\.]+).html', 
+        'blog.views.view_project', 
+        name='view_project_post'),
     url(
         r'^blog/topic/(?P<slug>[^\.]+).html', 
         'blog.views.view_topic', 

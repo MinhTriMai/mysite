@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+	<div id="project" class="small-12 medium-8 large-9 columns">
+		<h1>{{project.title}}</h1>
+		<p>{{project.date}}</p>
+		<p>{{project.content|safe}}</p>
+		<div id="disqus_thread"></div>
+	</div>
+{% endblock %}

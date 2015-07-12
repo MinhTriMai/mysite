@@ -14,13 +14,17 @@ class Blog(models.Model):
     files = models.ManyToManyField('blog.BlogFile', blank=True)
     hiden = models.BooleanField(default=False)
     featured = models.BooleanField(default=False)
+    isProject = models.BooleanField(default=False)
 	
     def __str__(seft):
         return seft.title
 		
     @permalink
     def get_absolute_url(self):
-        return ('view_blog_post', None, { 'slug': self.slug })
+	    if (self.isProject == True):
+		    return ('view_project_post', None, { 'slug': self.slug })
+	    else:
+		    return ('view_blog_post', None, { 'slug': self.slug })
 		
 class BlogImage(models.Model):
     image = models.ImageField(upload_to="static/user_upload/images/")

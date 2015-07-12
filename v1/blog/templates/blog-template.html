@@ -1,65 +1,59 @@
-{% extends "base.html" %}
-{% block extrahead %}
+<html>
+<head>
+	<title>Ciscer - Personal Blog| Walle | Mai</title>
+    <meta name="description" content="Walle's personal blog app made by Django" />
+    <meta name="keywords" content="Walle, Mai, personal blog" />
+    <meta name="author" content="Ciscer" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/static/images/icon.png">
+	<link rel="apple-touch-icon" href="/static/images/icon.png">
 	{% load staticfiles %}
 	<link type="text/css" rel="Stylesheet" href="{% static 'css/blog-template.css' %}"/>
-{% endblock %}
-{% block content %}
-	<div class="off-canvas-wrap" data-offcanvas>
-	  <div class="inner-wrap">
-		<nav class="tab-bar show-for-small-only">
-		  <section class="left-small">
-			<a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-		  </section>
-		  <section class="middle tab-bar-section">
-			<h1 class="title">Blogs</h1>
-		  </section>
-		  <section class="right-small">
-			<a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
-		  </section>
-		</nav>
-		<aside class="left-off-canvas-menu show-for-small-only">
-		    <label class="menu-group-title">Category</label>
-			<ul class="accordion off-canvas-list" data-accordion>
-			{% for topic in topics %}
-				<li class="accordion-navigation" style="text-align:left;">
-					<a href="#{{topic.slug}}">{{topic}}</a>
-					<div id="{{topic.slug}}" class="content menu-links">
-					  {% for blog in topic.blog_set.all %}
-						<a href="{{blog.get_absolute_url}}">{{blog}}</a>
-					  {%endfor%}
-					</div>
+	<link type="text/css" rel="Stylesheet" href="{% static 'css/foundation/foundation.css' %}" />
+	{% block extrahead %}
+	{% endblock %}
+</head>
+<body>
+	<div id="header">
+		<nav class="top-bar" data-topbar role="navigation">
+			<ul class="title-area">
+				<li class="name">
+					<h1><a target="_parent" href="/" runat="server" id="ciscerLogo"><img class="logo" src="{% static 'images/logo.png' %}" /></a></h1>
 				</li>
-			{%endfor%}			  			  
+				<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 			</ul>
-		</aside>
-		<aside class="right-off-canvas-menu show-for-small-only">
-			<label class="menu-group-title">Tag</label>
-			<ul class="inline-list">
-				{% for tag in tags %}
-					{% if forloop.counter|divisibleby:2 %}
-						<li><a class="label" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
-					{% else %}
-						<li><a class="label secondary" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
-					{%endif%}
-				{%endfor%}				
-			</ul>
-			<div id="recent-comment" class="panel panel-primary">
-			  <div class="panel-heading">
-				<h4>Recent Comments</h4>
-			  </div><br/>
-			  <div id="RecentComments" class="dsq-widget panel-body">
-			  <script type="text/javascript" src="http://ciscer.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100">
-				var disqus_shortname = 'ciscer';
-			  </script>
-			  </div>
-			</div>
-		</aside>
-		<section class="main-section">
-		  <!-- content goes here -->
-		  <div id="left-menu" class="small-12 medium-4 large-3 columns hide-for-small-only">
-			<div id="topic">
+
+			<section class="top-bar-section">
+				<!-- Left Nav Section -->
+				<!-- Right Nav Section -->
+				<ul class="text-center right">
+					<li class="menu-item"><a href="/about/">About me</a></li>
+					<li class="menu-item"><a href="/projects/">Projects</a></li>
+					<li class="menu-item"><a href="/blogs/">Blogs</a></li>
+					<li class="menu-item"><a href="/contact/">Contact</a></li>
+				</ul>            
+			</section>
+		</nav>
+	</div>
+	<div id="pageContainer">
+		<div class="off-canvas-wrap" data-offcanvas>
+		  <div class="inner-wrap">
+			<nav class="tab-bar show-for-small-only">
+			  <section class="left-small">
+				<a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+			  </section>
+			  <section class="middle tab-bar-section">
+				<h1 class="title">Blogs</h1>
+			  </section>
+			  <section class="right-small">
+				<a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+			  </section>
+			</nav>
+			<aside class="left-off-canvas-menu show-for-small-only">
 				<label class="menu-group-title">Category</label>
-				<ul class="accordion" data-accordion>
+				<ul class="accordion off-canvas-list" data-accordion>
 				{% for topic in topics %}
 					<li class="accordion-navigation" style="text-align:left;">
 						<a href="#{{topic.slug}}">{{topic}}</a>
@@ -70,38 +64,89 @@
 						</div>
 					</li>
 				{%endfor%}			  			  
-				</ul>			
-			</div>		
-			<div id="tag">
-				<label class="menu-group-title">Tag</label>
-				<ul class="inline-list">
+				</ul>
+			</aside>
+			<aside class="right-off-canvas-menu show-for-small-only">
+				<label class="menu-group-title">Tag</label><br/>
+				<ul class="inline-list tags-list">
 					{% for tag in tags %}
 						{% if forloop.counter|divisibleby:2 %}
-							<li><a class="label" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
+							<li><a class="label radius" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
 						{% else %}
-							<li><a class="label secondary" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
+							<li><a class="label secondary radius" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
 						{%endif%}
-					{%endfor%}
+					{%endfor%}				
 				</ul>
-			</div>
-			<div id="recent-comment" class="panel panel-primary">
-			  <div class="panel-heading">
-				<h4>Recent Comments</h4>
-			  </div><br/>
-			  <div id="RecentComments" class="dsq-widget panel-body">
-			  <script type="text/javascript" src="http://ciscer.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100">
-				var disqus_shortname = 'ciscer';
-			  </script>
+				<div id="recent-comment" class="panel panel-primary">
+				  <div class="panel-heading">
+					<h4>Recent Comments</h4>
+				  </div><br/>
+				  <div id="RecentComments" class="dsq-widget panel-body">
+				  <script type="text/javascript" src="http://ciscer.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100">
+					var disqus_shortname = 'ciscer';
+				  </script>
+				  </div>
+				</div>
+			</aside>
+			<section class="main-section">
+			  <!-- content goes here -->
+			  <div id="left-menu" class="small-12 medium-4 large-3 columns hide-for-small-only">
+				<div id="topic">
+					<label class="menu-group-title">Category</label>
+					<ul class="accordion" data-accordion>
+					{% for topic in topics %}
+						<li class="accordion-navigation" style="text-align:left;">
+							<a href="#{{topic.slug}}">{{topic}}</a>
+							<div id="{{topic.slug}}" class="content menu-links">
+							  {% for blog in topic.blog_set.all %}
+								<a href="{{blog.get_absolute_url}}">{{blog}}</a>
+							  {%endfor%}
+							</div>
+						</li>
+					{%endfor%}			  			  
+					</ul>			
+				</div>		
+				<div id="tag">
+					<label class="menu-group-title">Tag</label><br/>
+					<ul class="inline-list tags-list">
+						{% for tag in tags %}
+							{% if forloop.counter|divisibleby:2 %}
+								<li><a class="label radius" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
+							{% else %}
+								<li><a class="label secondary radius" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
+							{%endif%}
+						{%endfor%}
+					</ul>
+				</div>
+				<div id="recent-comment" class="panel panel-primary">
+				  <div class="panel-heading">
+					<h4>Recent Comments</h4>
+				  </div><br/>
+				  <div id="RecentComments" class="dsq-widget panel-body">
+				  <script type="text/javascript" src="http://ciscer.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100">
+					var disqus_shortname = 'ciscer';
+				  </script>
+				  </div>
+				</div>
 			  </div>
-			</div>
-		  </div>
-		{% block blog-content %}
-		{% endblock %}
-		{% block blog-footer %}
-		{% endblock %}
-		</section>
+			{% block content %}
+			{% endblock %}
+			</section>
 
-		<a class="exit-off-canvas"></a>
-	  </div>
-	</div>		
+			<a class="exit-off-canvas"></a>
+		  </div>
+		</div>
+	</div>	
+</body>
+<script src="{% static 'js/foundation/vendor/jquery.js' %}"></script>
+<script src="{% static 'js/foundation/foundation.min.js' %}"></script>
+<script>
+	Foundation.global.namespace = '';
+	$(document).foundation();
+</script>
+<script>
+	$("#left-menu").height($(document).height());
+</script>
+{% block extrafoot %}
 {% endblock %}
+</html>
