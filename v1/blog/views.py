@@ -6,7 +6,7 @@ from django.core.paginator import Paginator, EmptyPage
 # Create your views here.
 def blogs(request, selected_page=1):
     # Get all blog posts
-    blogs = Blog.objects.all().order_by('date')
+    blogs = Blog.objects.all().filter(hiden=False).order_by('date')
     # Add pagination
     pages = Paginator(blogs, 3)
     # Get the specified page

@@ -6,7 +6,7 @@ from django.template.defaultfilters import slugify
 class BlogAdmin(admin.ModelAdmin):
     exclude = ['date']
     prepopulated_fields = {'slug': ('title',)}
-    list_display = ('title', 'topic', 'date')
+    list_display = ('title', 'topic', 'date', 'hiden', 'featured')
     search_fields = ['title']
 
 class TopicAdmin(admin.ModelAdmin):

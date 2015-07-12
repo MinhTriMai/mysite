@@ -12,6 +12,8 @@ class Blog(models.Model):
     tag = models.ManyToManyField('blog.Tag', blank=True)
     images = models.ManyToManyField('blog.BlogImage', blank=True)
     files = models.ManyToManyField('blog.BlogFile', blank=True)
+    hiden = models.BooleanField(default=False)
+    featured = models.BooleanField(default=False)
 	
     def __str__(seft):
         return seft.title
