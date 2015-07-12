@@ -1,19 +1,27 @@
 {% extends "blog-template.html" %}
+{% block extrahead %}
+	{% load staticfiles %}
+	<link type="text/css" rel="Stylesheet" href="{% static 'css/blogs.css' %}"/>
+{% endblock %}
 {% block blog-content %}
-	<div id="blogslist" class="small-12 medium-8 large-9 columns">
-		{% for blog in blogs %}
-			<p><a href="{{blog.get_absolute_url}}">{{blog}}</a></p>
-			<p>{{blog.description|safe}}</p>
-		{%endfor%}
-		<br />
-		<div class="text-center">
-			{% if page.has_previous %}
-			<a href="/blogs/{{ page.previous_page_number }}/">&laquo;Previous Page</a>
-			<span>&nbsp;&nbsp;&nbsp;</span>
-			{% endif %}			
-			{% if page.has_next %}
-			<a href="/blogs/{{ page.next_page_number }}/">Next Page&raquo;</a>
-			{% endif %}
-		</div>
+	<div id="blogslist-container" class="small-12 medium-8 large-9 columns">
+		<ul id="blogslist">
+			{% for blog in blogs %}
+			<li class="blog-item row">
+				<a href="{{blog.get_absolute_url}}"><h3>{{blog}}</h3></a>
+				<p>{{blog.description|safe}}</p>
+			</li>
+			{%endfor%}
+		</ul>
+	</div>
+	<br />
+	<div class="text-center">
+		{% if page.has_previous %}
+		<a href="/blogs/{{ page.previous_page_number }}/">&laquo;Previous Page</a>
+		<span>&nbsp;&nbsp;&nbsp;</span>
+		{% endif %}			
+		{% if page.has_next %}
+		<a href="/blogs/{{ page.next_page_number }}/">Next Page&raquo;</a>
+		{% endif %}
 	</div>
 {% endblock %}

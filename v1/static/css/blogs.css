@@ -1,0 +1,12 @@
+li.blog-item{
+	border-top: solid 1px black;
+}
+
+#blogslist{
+	list-style: none;
+}
+
+#blogslist > li:first-child {
+    border-top: none;
+}
+
