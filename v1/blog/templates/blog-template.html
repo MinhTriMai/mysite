@@ -43,6 +43,16 @@
 					{%endif%}
 				{%endfor%}				
 			</ul>
+			<div id="recent-comment" class="panel panel-primary">
+			  <div class="panel-heading">
+				<h4>Recent Comments</h4>
+			  </div><br/>
+			  <div id="RecentComments" class="dsq-widget panel-body">
+			  <script type="text/javascript" src="http://ciscer.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100">
+				var disqus_shortname = 'ciscer';
+			  </script>
+			  </div>
+			</div>
 		</aside>
 		<section class="main-section">
 		  <!-- content goes here -->
@@ -73,6 +83,16 @@
 						{%endif%}
 					{%endfor%}
 				</ul>
+			</div>
+			<div id="recent-comment" class="panel panel-primary">
+			  <div class="panel-heading">
+				<h4>Recent Comments</h4>
+			  </div><br/>
+			  <div id="RecentComments" class="dsq-widget panel-body">
+			  <script type="text/javascript" src="http://ciscer.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100">
+				var disqus_shortname = 'ciscer';
+			  </script>
+			  </div>
 			</div>
 		  </div>
 		{% block blog-content %}
