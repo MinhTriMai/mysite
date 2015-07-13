@@ -5,7 +5,7 @@ body{
 }
 
 #pageContainer{
-	background: url("/static/images/home_background.jpg") no-repeat top center fixed; 
+	background: url("/static/images/home_background.jpg") no-repeat top center; 
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
@@ -30,3 +30,81 @@ body{
 	display: table;
 	background-color: rgba(73, 118, 119, 0.6);	
 }
+
+@font-face {
+    font-family: "FontAwesome";
+	src: url('/static/fonts/fontawesome-webfont.otf');
+    src: url('/static/fonts/fontawesome-webfont.otf') format('otf'), 
+		 url('/static/fonts/fontawesome-webfont.eot') format('eot'),
+         url('/static/fonts/fontawesome-webfont.woff') format('woff'),
+         url('/static/fonts/fontawesome-webfont.woff2') format('woff2'),
+		 url('/static/fonts/fontawesome-webfont.ttf') format('ttf'),
+         url('/static/fonts/fontawesome-webfont.svg') format('svg');
+}
+
+.list-components h3 {
+	  font-size: 24px;
+	  border-top: 1px solid #CFE3DC;
+	  padding-top: 25px;
+	}
+
+.list-components i {
+	  color: #F1FFF7;
+	  margin-right: 10px;
+	  width: 40px;
+	  height: 40px;
+	  border-radius: 25px;
+	  background: #20AA76;
+	  display: inline-block;
+	  text-align: center;
+	  
+	  -webkit-transition: all 0.3s ease-out;
+	  transition: all 0.3s ease-out;
+	}
+	
+@media screen and (min-width: 768px){
+	.list-components i {
+	  margin-right: 10px;
+	  width: 80px;
+	  height: 80px;
+	  top: 20px;
+	  border-radius: 40px;
+	  font-size: 46px;
+	}
+	
+	.list-components h3 {
+		  padding: 20px 0 0px 110px;
+		  font-size: 18px;
+		  border-top: 0;
+		  margin-top: 0;
+	}
+}
+
+
+
+.font-icon {
+	  display: inline-block;
+	  font: normal normal normal 14px/1 FontAwesome;
+	  font-size: inherit;
+	  text-rendering: auto;
+	  -webkit-font-smoothing: antialiased;
+	  -moz-osx-font-smoothing: grayscale;  
+	  transform: translate(0, 0);
+}
+
+.icon-about:before {
+	content: "\f05a";
+}
+
+.icon-project:before {
+	content: "\f12e";
+}
+
+.icon-blog:before {
+	content: "\f032";
+}
+
+.icon-contact:before {
+	content: "\f007";
+}
+
