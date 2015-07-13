@@ -28,6 +28,7 @@ urlpatterns = [
         r'^blog/view/(?P<slug>[^\.]+).html', 
         'blog.views.view_blog', 
         name='view_blog_post'),
+    url(r'^projects/$', 'blog.views.projects'),
     url(
         r'^project/view/(?P<slug>[^\.]+).html', 
         'blog.views.view_project', 

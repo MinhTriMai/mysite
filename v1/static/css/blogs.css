@@ -10,3 +10,22 @@ li.blog-item{
     border-top: none;
 }
 
+.blog-title-orbit{
+	color: white;
+}
+
+.orbit-image{
+	height: 300px;
+	overflow: hidden;
+}
+
+.orbit-image > img{
+	height: 100%;
+	display: initial !important;
+}
+
+.orbit-description{
+	height: 300px;
+	overflow: hidden;
+}
+

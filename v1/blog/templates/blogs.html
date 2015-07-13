@@ -5,6 +5,29 @@
 {% endblock %}
 {% block content %}
 	<div id="blogslist-container" class="small-12 medium-8 large-9 columns">
+		<ul class="example-orbit" data-orbit data-options="animation:slide;
+                  pause_on_hover:true;
+				  resume_on_mouseout: true;
+				  next_on_click: true;
+                  animation_speed:1500;
+				  timer_speed: 5000;
+                  navigation_arrows:true;
+				  variable_height: true;
+                  bullets:false;">
+		{% for blog in featured_blogs %}
+		  <li>
+			{% if blog.images.all|length > 0 %}
+				<div class="orbit-image text-center"><img src="/{{blog.images.all|first}}" alt="slide {{forloop.counter}}" /></div>
+			{% else %}
+				<div class="orbit-description">{{blog.description|safe}}</div>
+			{%endif%}			
+			<div class="orbit-caption">
+			  <a href="{{blog.get_absolute_url}}"><h3 class="blog-title-orbit">{{blog}}</h3></a>
+			</div>
+		  </li>		  
+		{%endfor%}
+		</ul>
+		<br/>
 		<ul id="blogslist">
 			{% for blog in blogs %}
 			<li class="blog-item row">
@@ -24,4 +47,8 @@
 			{% endif %}
 		</div>
 	</div>	
+{% endblock %}
+{% block extrafoot %}
+<script>
+</script>
 {% endblock %}
