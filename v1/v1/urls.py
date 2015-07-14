@@ -41,4 +41,5 @@ urlpatterns = [
         r'^blog/tag/(?P<slug>[^\.]+).html', 
         'blog.views.view_tag', 
         name='view_blog_tag'),
+	url(r'^search/$', 'blog.views.search'),
 ]

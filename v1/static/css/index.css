@@ -13,11 +13,25 @@ body{
 	  height: 100%;
 }
 
+@media screen and (max-width: 640px){
+	#pageContainer{
+		background: none;
+	}
+}
+
 #content_header
 {
 	margin: 20px 50px;
 	background-color: rgba(73, 118, 119, 0.6);
 	border-radius: 5px;
+}
+
+.postfix-round{
+	padding-top: 20px;
+}
+
+#button-search{
+	font-size: 19px;
 }
 
 .img-head{
@@ -26,9 +40,9 @@ body{
 }
 
 .main{
-	margin: 20px 50px;	  
+	margin: 20px auto;	  
 	display: table;
-	background-color: rgba(73, 118, 119, 0.6);	
+	background-color: rgba(73, 118, 119, 0.6);
 }
 
 @font-face {
@@ -42,12 +56,17 @@ body{
          url('/static/fonts/fontawesome-webfont.svg') format('svg');
 }
 
-.list-components h3 {
-	  font-size: 24px;
-	  border-top: 1px solid #CFE3DC;
-	  padding-top: 25px;
-	}
+.list-components{
+	width: 100%;
+}
 
+.list-components h3 {
+	  padding-top: 25px;
+	  color: #fff;
+	  font-size: 22px;	
+	  text-align: center;		
+	}
+	
 .list-components i {
 	  color: #F1FFF7;
 	  margin-right: 10px;
@@ -57,30 +76,36 @@ body{
 	  background: #20AA76;
 	  display: inline-block;
 	  text-align: center;
+	  line-height: 40px;
 	  
-	  -webkit-transition: all 0.3s ease-out;
-	  transition: all 0.3s ease-out;
+	  -webkit-transition: all 0.5s ease-out;
+	  transition: all 0.5s ease-out;
 	}
+	
+.list-components i:hover {
+	-webkit-transform:rotate(360deg);
+	-moz-transform:rotate(360deg);
+	-o-transform:rotate(360deg);
+	color: #ED9C1E;
+}
 	
 @media screen and (min-width: 768px){
 	.list-components i {
-	  margin-right: 10px;
-	  width: 80px;
-	  height: 80px;
 	  top: 20px;
+	  width: 80px;
+	  height: 80px;	  
 	  border-radius: 40px;
 	  font-size: 46px;
+	  display: block;
+	  line-height: 80px;
+	  margin: 0 auto;
 	}
 	
 	.list-components h3 {
-		  padding: 20px 0 0px 110px;
-		  font-size: 18px;
-		  border-top: 0;
-		  margin-top: 0;
+	  font-size: 28px;
+	  margin-top: 0;		  
 	}
 }
-
-
 
 .font-icon {
 	  display: inline-block;
@@ -107,4 +132,3 @@ body{
 .icon-contact:before {
 	content: "\f007";
 }
-

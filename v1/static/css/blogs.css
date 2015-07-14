@@ -29,3 +29,16 @@ li.blog-item{
 	overflow: hidden;
 }
 
+.orbit-blog-caption{
+	margin-bottom: 0;
+}
+
+.blog-title-orbit{
+	margin-bottom: 0;
+}
+
+.button-readthis{
+	margin-bottom: 0;
+	padding: 10px;
+}
+

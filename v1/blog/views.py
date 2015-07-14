@@ -3,13 +3,13 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from blog.models import Blog, Topic, Tag
 from django.core.paginator import Paginator, EmptyPage
-from django.db.models import Q
+from itertools import chain
 # Create your views here.
 def blogs(request, selected_page=1):
     # Get all blog posts
     topic_project = get_object_or_404(Topic, name='Project')
     blogs = Blog.objects.all().filter(hiden=False).exclude(topic=topic_project).order_by('-date')
-    featured_blogs = Blog.objects.all().filter(hiden=False, featured=True).exclude(topic=topic_project).order_by('-date')
+    featured_blogs = blogs.filter(featured=True).exclude(topic=topic_project)
     
     # Add pagination
     pages = Paginator(blogs, 5)
@@ -55,12 +55,34 @@ def projects(request):
     # Get all project posts
     topic_project = get_object_or_404(Topic, name='Project')
     projects = Blog.objects.all().filter(hiden=False, topic=topic_project).order_by('-date')
+    featured_projects = projects.filter(featured=True)
     	
     return render_to_response('projects.html', {
         'projects': projects,
+        'featured_projects': featured_projects
     })
 	
 def view_project(request, slug):
     return render_to_response('project.html', {
         'project': get_object_or_404(Blog, slug=slug)
+    })
+	
+def search(request):    
+    errors = []
+    if 'q' in request.GET:
+        q = request.GET['q']
+        if not q:
+            errors.append('Please enter a search term.')
+        elif len(q) > 20:
+            errors.append('Please enter at most 20 characters.')
+        else:
+            first_results = Blog.objects.all().filter(hiden=False, title__iregex=r"\b{0}\b".format(q))
+            more_results = Blog.objects.all().filter(hiden=False, content__iregex=r"\b{0}\b".format(q))
+            results = (first_results | more_results).order_by('-date')
+            return render_to_response('search.html', {
+				'results': results,
+				'query': q
+			})
+	return render(request, 'search.html', {
+        'errors': errors
     })

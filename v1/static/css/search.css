@@ -1,0 +1,16 @@
+.postfix-round{
+	padding-top: 20px;
+}
+
+#button-search{
+	font-size: 19px;
+}
+
+#errorslist{
+	list-style: none;
+	color: red;
+}
+
+#searchresultslist{
+	list-style: none;
+}

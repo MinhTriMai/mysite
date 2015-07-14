@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block extrahead %}
+	{% load staticfiles %}
+	<link type="text/css" rel="Stylesheet" href="{% static 'css/search.css' %}"/>
+{% endblock %}
+{% block content %}
+	<div id="searchresultslist-container" class="text-center">		
+		<form action="/search/" method="get">
+			<div class="row">
+				<div class="small-6 columns small-centered">
+					<div class="row collapse postfix-round">
+						<div class="small-9 columns">
+						  <input type="text" name="q" value="{{query}}" placeholder="Search again...">
+						</div>
+						<div class="small-3 columns">
+						  <input id="button-search" type="submit" value="&#128269;" class="postfix button"/>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</form>
+		<h1>Search Result</h1>
+		{% if errors %}
+			<ul id="errorslist">
+				{% for error in errors %}
+				<li>{{ error }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+		<ul id="searchresultslist">
+			{% if results.all|length = 0 and errors = None %}
+				<p>No result found. Please try again.</p>
+			{% elif results.all|length >= 1 %}
+				{% if results.all|length = 1 %}
+					<h3>{{results.all|length}} result found.</h3>
+				{% else %}
+					<h3>{{results.all|length}} results found.</h3>
+				{%endif%}				
+				{% for result in results %}
+				<li class="result-item row">
+					<a href="{{result.get_absolute_url}}"><h3>{{result}}</h3></a>
+					<p>{{result.description|safe}}</p>
+				</li>
+				{%endfor%}
+			{%endif%}			
+		</ul>		
+	</div>	
+{% endblock %}

@@ -20,9 +20,12 @@
 				<div class="orbit-image text-center"><img src="/{{blog.images.all|first}}" alt="slide {{forloop.counter}}" /></div>
 			{% else %}
 				<div class="orbit-description">{{blog.description|safe}}</div>
-			{%endif%}			
+			{%endif%}
 			<div class="orbit-caption">
-			  <a href="{{blog.get_absolute_url}}"><h3 class="blog-title-orbit">{{blog}}</h3></a>
+			<ul class="inline-list orbit-blog-caption">
+			  <li><a href="{{blog.get_absolute_url}}"><h3 class="blog-title-orbit">{{blog}}</h3></a></li>
+			  <li><a class="button success round button-readthis" href="{{blog.get_absolute_url}}">Read this</a></li>
+			</ul>
 			</div>
 		  </li>		  
 		{%endfor%}

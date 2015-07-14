@@ -5,6 +5,35 @@
 {% endblock %}
 {% block content %}
 	<div id="projectslist-container" class="text-center">
+		<div id="featured-projects" class="row">
+			<ul class="example-orbit" data-orbit data-options="animation:slide;
+					  pause_on_hover:true;
+					  resume_on_mouseout: true;
+					  next_on_click: true;
+					  animation_speed:1500;
+					  timer_speed: 5000;
+					  navigation_arrows:true;
+					  variable_height: true;
+					  bullets:false;">
+			{% for project in featured_projects %}
+			  <li>
+				<div class="orbit-image-region small-4 columns">
+					{% if project.images.all|length > 0 %}
+						<img class="orbit-image" src="/{{project.images.all|first}}" alt="slide {{forloop.counter}}" />
+					{% else %}
+						<img class="orbit-image" src="{% static 'images/default.png' %}" alt="slide {{forloop.counter}}" />
+					{%endif%}
+				</div>
+				<div class="orbit-title-region small-8 columns">
+					<a href="{{project.get_absolute_url}}"><h3 class="project-title-orbit">{{project}}</h3></a>
+					<p>{{project.description}}</p>
+					<a class="button success round" href="{{project.get_absolute_url}}">Read this</a>
+				</div>
+			  </li>		  
+			{%endfor%}
+			</ul>
+		</div>
+		<br/>
 		<ul id="projectslist">
 			{% for project in projects %}
 			<li class="project-item row">

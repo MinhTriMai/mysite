@@ -1,9 +1,9 @@
 <html>
 <head>
-	<title>Ciscer - Personal Website | Walle | Mai</title>
-    <meta name="description" content="Walle's personal website made by Django" />
-    <meta name="keywords" content="Walle, Mai, personal website" />
-    <meta name="author" content="Ciscer" />
+	<title>Ciscer - Mai's Personal Website</title>
+    <meta name="description" content="Mai's personal website made by Django & Foundation" />
+    <meta name="keywords" content="Mai, Walle, personal website, django, foundation" />
+    <meta name="author" content="Vinh Tuong MAI" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
@@ -17,11 +17,13 @@
 	{% endblock %}
 </head>
 <body>
+	{% block extrabodyhead %}
+	{% endblock %}
 	<div id="header">
 		<nav class="top-bar" data-topbar role="navigation">
 			<ul class="title-area">
 				<li class="name">
-					<h1><a target="_parent" href="/" runat="server" id="ciscerLogo"><img class="logo" src="{% static 'images/logo.png' %}" /></a></h1>
+					<h1><a target="_parent" href="/" runat="server" id="ciscerLogo"><!-- <img class="logo" src="{% static 'images/logo.png' %}" /> -->HOME</a></h1>
 				</li>
 				<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
 				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -35,14 +37,42 @@
 					<li class="menu-item"><a href="/projects/">Projects</a></li>
 					<li class="menu-item"><a href="/blogs/">Blogs</a></li>
 					<li class="menu-item"><a href="/contact/">Contact</a></li>
-				</ul>            
+				</ul>
 			</section>
 		</nav>
 	</div>
 	<div id="pageContainer">
 		{% block content %}
 		{% endblock %}
-	</div>	
+	</div>
+	<div id="footer">
+		<div class="small-12 medium-4 columns text-center">
+			<h3>shdf jhsdj hfah sdasdhk sasd</h3>
+			<h1>shdfjhs djh fahsda sdhk sasd</h1>
+			<p>shd fjhs djhfa hsda sdh ksasd</p>
+			<h1>shdfjh sdjhf ah sdasd hksasd</h1>
+			<a class="button radius">skdfka</a>
+		</div>
+		<div class="small-12 medium-4 columns text-center">
+			<h3>shdfjh sdjhf ahsdas dhksasd</h3>
+			<h1>shdfjh sdj hfahsd asdhk sasd</h1>
+			<p>shdfjhs djhf ahsda sdhk sasd</p>
+			<h1>shdfj hsdjhfa hsdas dh ksasd</h1>
+			<a class="button radius">skdfk</a>
+		</div>
+		<div class="small-12 medium-4 columns">
+			<div class="text-center">
+				<h3>shdfj hsdjhf ahsdas dhk sasd</h3>
+				<p>shdfjh sdj hfahs dasdhk sasd</p>
+				<a>Learn more ›</a>
+			</div>
+			<div class="text-center">
+				<h3>shdf jhs djhfah sdasd hk sasd</h3>
+				<p>shdfjhs djh fahsda sdhk sasd</p>
+				<a>Learn more ›</a>
+			</div>
+		</div>
+	</div>
 </body>
 <script src="{% static 'js/foundation/vendor/jquery.js' %}"></script>
 <script src="{% static 'js/foundation/foundation.min.js' %}"></script>
