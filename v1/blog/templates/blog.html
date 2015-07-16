@@ -8,6 +8,14 @@
 	</div>
 {% endblock %}
 {% block extrafoot %}
+{% load staticfiles %}
+<script src="{% static 'js/jquery.resize.js' %}"></script>
+<script type="text/javascript">
+	var myResizeFunc = function () {
+		$("#left_menu").height($(document).height());
+	};
+	$('#blog').resize(myResizeFunc);
+</script>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'ciscer';    
