@@ -4,7 +4,14 @@
 	<link type="text/css" rel="Stylesheet" href="{% static 'css/blogs.css' %}"/>
 {% endblock %}
 {% block content %}
-	<div id="blogslist-container" class="small-12 medium-8 large-9 columns">
+	<div class="blogs-title">
+		{% if topic %}
+			<h3>Topic: {{topic}}</h3>
+		{% elif tag %}
+			<h3>Tag: {{tag}}</h3>
+		{%endif%}
+	</div>
+	<div id="blogslist_container" class="small-12 medium-8 large-9 columns">
 		<ul class="example-orbit" data-orbit data-options="animation:slide;
                   pause_on_hover:true;
 				  resume_on_mouseout: true;

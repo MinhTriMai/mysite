@@ -1,3 +1,14 @@
+.blogs-title{
+	text-align: center;
+	background-color: #33546F;
+	padding: 10px 0;
+}
+
+.blogs-title > h3{
+	color: #FFFFFF;
+	margin: 0;
+}
+
 li.blog-item{
 	border-top: solid 1px black;
 }

@@ -36,9 +36,12 @@ def view_blog(request, slug):
 	
 def view_topic(request, slug):
     topic = get_object_or_404(Topic, slug=slug)
-    return render_to_response('view_topic.html', {
+    topic_project = get_object_or_404(Topic, name='Project')
+    return render_to_response('blogs.html', {
         'topic': topic,
-        'blogs': Blog.objects.filter(topic=topic)[:5]
+        'topics': Topic.objects.all().exclude(name='Project').order_by('name'),
+        'tags': Tag.objects.all().order_by('name'),
+        'blogs': Blog.objects.all().filter(topic=topic, hiden=False).exclude(topic=topic_project).order_by('-date'),
     })
 	
 def view_tag(request, slug):
@@ -47,7 +50,7 @@ def view_tag(request, slug):
     return render_to_response('blogs.html', {
         'tag': tag,
         'topics': Topic.objects.all().exclude(name='Project').order_by('name'),
-		'tags': Tag.objects.all().order_by('name'),
+        'tags': Tag.objects.all().order_by('name'),
         'blogs': Blog.objects.all().filter(tag=tag, hiden=False).exclude(topic=topic_project).order_by('-date'),
     })
 	
@@ -85,4 +88,12 @@ def search(request):
 			})
 	return render(request, 'search.html', {
         'errors': errors
+    })
+	
+def default(request):
+    # Get all featured posts
+    featured_posts = Blog.objects.all().filter(hiden=False, featured=True).order_by('-date')
+    	
+    return render_to_response('index.html', {
+        'featured_posts': featured_posts
     })

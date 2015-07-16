@@ -15,7 +15,7 @@ body{
 
 @media screen and (max-width: 640px){
 	#pageContainer{
-		background: none;
+		
 	}
 }
 
@@ -26,17 +26,22 @@ body{
 	border-radius: 5px;
 }
 
-.postfix-round{
-	padding-top: 20px;
-}
-
-#button-search{
-	font-size: 19px;
+#content_header_small{
+	margin: 15px 0 0 0;
+	padding: 0 20px 0 15px;
 }
 
 .img-head{
 	width: 50%;
 	min-width: 350px;	
+}
+
+.postfix-round{
+	padding-top: 20px;
+}
+
+#button_search{
+	font-size: 19px;
 }
 
 .main{
@@ -63,8 +68,8 @@ body{
 .list-components h3 {
 	  padding-top: 25px;
 	  color: #fff;
-	  font-size: 22px;	
-	  text-align: center;		
+	  font-size: 22px;		
+	  margin-left: 20px;
 	}
 	
 .list-components i {
@@ -103,7 +108,8 @@ body{
 	
 	.list-components h3 {
 	  font-size: 28px;
-	  margin-top: 0;		  
+	  margin-top: 0;	
+	  text-align: center;		
 	}
 }
 
@@ -117,8 +123,8 @@ body{
 	  transform: translate(0, 0);
 }
 
-.icon-about:before {
-	content: "\f05a";
+.icon-machine-learning:before {
+	content: "\f19d";
 }
 
 .icon-project:before {
@@ -129,6 +135,6 @@ body{
 	content: "\f032";
 }
 
-.icon-contact:before {
-	content: "\f007";
+.icon-web-development:before {
+	content: "\f0ac";
 }

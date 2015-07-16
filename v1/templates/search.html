@@ -4,7 +4,7 @@
 	<link type="text/css" rel="Stylesheet" href="{% static 'css/search.css' %}"/>
 {% endblock %}
 {% block content %}
-	<div id="searchresultslist-container" class="text-center">		
+	<div id="searchresultslist_container" class="text-center">		
 		<form action="/search/" method="get">
 			<div class="row">
 				<div class="small-6 columns small-centered">
@@ -13,7 +13,7 @@
 						  <input type="text" name="q" value="{{query}}" placeholder="Search again...">
 						</div>
 						<div class="small-3 columns">
-						  <input id="button-search" type="submit" value="&#128269;" class="postfix button"/>
+						  <input id="button_search" type="submit" value="&#128269;" class="postfix button"/>
 						</div>
 					</div>					
 				</div>

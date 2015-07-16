@@ -19,7 +19,7 @@ from django.views.generic.base import TemplateView
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-	url(r'^$', TemplateView.as_view(template_name='index.html')),
+	url(r'^$', 'blog.views.default'),
 	url(r'^about/$', TemplateView.as_view(template_name='about.html')),
 	url(r'^contact/$', TemplateView.as_view(template_name='contact.html')),
 	url(r'^blogs/$', 'blog.views.blogs'),

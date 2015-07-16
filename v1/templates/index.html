@@ -9,13 +9,13 @@
 		<h1 class="left">Mai's personal website</h1>
 		<form action="/search/" method="get">
 			<div class="row">
-				<div class="small-6 medium-4 columns right">
+				<div class="small-8 medium-6 large-4 columns right">
 					<div class="row collapse postfix-round">
 						<div class="small-9 columns">
 						  <input type="text" name="q" placeholder="Search...">
 						</div>
 						<div class="small-3 columns">
-						  <input id="button-search" type="submit" value="&#128269;" class="postfix button"/>
+						  <input id="button_search" type="submit" value="&#128269;" class="postfix button"/>
 						</div>
 					</div>
 				</div>
@@ -24,7 +24,7 @@
 	</div>
 {% endblock %}
 {% block content %}
-	<div id="clouds" class="hide-for-small-only">     
+	<div id="clouds" class="hide-for-small-only">
 		<div class="cloud x1"></div>
 		<div class="cloud x2"></div>
 		<div class="cloud x3"></div>
@@ -35,14 +35,17 @@
 		<div id="content_header" class="text-center hide-for-small-only">
 			<img class="img-head" src="{% static '/static/images/home_header.png' %}"/>
 		</div>
+		<div id="content_header_small" class="text-center show-for-small-only">
+			<img src="{% static '/static/images/home_header_small.png' %}"/>
+		</div>
 		<div class="main row">
 			<h1 style="text-align:center; color: white;">UNDER CONSTRUCTIONS</h1>
-			<ul class="list-components small-block-grid-2 medium-block-grid-4">
-				<li><a href="/about/"><h3><i class="font-icon icon-about"></i>About me</h3></a></li>
-				<li><a href="/projects/"><h3><i class="font-icon icon-project"></i>My projects</h3></a></li>
+			<ul class="list-components small-block-grid-2 medium-block-grid-4">				
 				<li><a href="/blogs/"><h3><i class="font-icon icon-blog"></i>My blogs</h3></a></li>
-				<li><a href="/contact/"><h3><i class="font-icon icon-contact"></i>Contact me</h3></a></li>
+				<li><a href="/projects/"><h3><i class="font-icon icon-project"></i>My projects</h3></a></li>
+				<li><a href="/blog/topic/machine-learning.html"><h3><i class="font-icon icon-machine-learning"></i>Machine Learning</h3></a></li>
+				<li><a href="/blog/topic/web-development.html"><h3><i class="font-icon icon-web-development"></i>Web Development</h3></a></li>
 			</ul>
-		</div>
+		</div>		
 	</div>	
 {% endblock %}
