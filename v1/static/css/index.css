@@ -15,7 +15,7 @@ body{
 
 @media screen and (min-width: 640px){
 	.search-box{
-		position: fixed;
+		position: absolute;
 		right: 1%;
 	}
 }
