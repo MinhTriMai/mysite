@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block extrahead %}
+	{% load staticfiles %}
+	<link type="text/css" rel="Stylesheet" href="{% static 'css/thank-you.css' %}"/>
+{% endblock %}
+{% block content %}
+	<div class="message-wrapper text-center">
+		{% if request.GET.m = 'success' %}
+			<h3 class="message">Your message has been sent successfully. Thank you.</h3>
+		{% elif request.GET.m = 'fail' %}
+			<h3 class="message">There is an error occurs. Please try again.</h3>
+		{% endif %}
+	</div>
+{% endblock %}

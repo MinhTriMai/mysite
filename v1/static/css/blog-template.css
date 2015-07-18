@@ -6,8 +6,7 @@ html, body
 
 #left_menu{
 	padding-left: 0;
-	padding-right: 0;
-	background-color: #333;
+	padding-right: 0;	
 	border-right: 1px solid transparent;
 	bottom: 0;
 }
@@ -59,12 +58,20 @@ ul.off-canvas-list .menu-links > a:hover{
 	padding: 0.2rem 0.5rem;
 }
 
+#tag{
+	/* background-color: #A3A8AD; */
+}
+
 ul.tags-list{
-	margin: -10px 5px 15px;
+	margin: -10px 5px 15px;  
 }
 
 ul.tags-list > li{
 	margin-top: 2px;
+}
+
+#recent_comment_wrapper{
+	margin-top: 15px;
 }
 
 @font-face {

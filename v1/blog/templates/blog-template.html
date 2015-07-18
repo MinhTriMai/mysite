@@ -47,7 +47,7 @@
 				<li><a id="twitterLink" href="#"><i class="btn-twitter sharing-button"></i></a></li>
 				<li><a id="linkedinLink" href="#"><i class="btn-linkedin sharing-button"></i></a></li>
 				<li><a id="googleplusLink" href="#"><i class="btn-googleplus sharing-button"></i></a></li>
-			</ul>
+			</ul>			
 		</div>
 		<div class="off-canvas-wrap" data-offcanvas>
 		  <div class="inner-wrap">
@@ -63,7 +63,7 @@
 			  </section>
 			</nav>
 			<aside class="left-off-canvas-menu show-for-small-only">
-				<label class="menu-group-title">Category</label>
+				<p class="menu-group-title">Category</p>
 				<ul class="accordion off-canvas-list" data-accordion>
 				{% for topic in topics %}
 					<li class="accordion-navigation" style="text-align:left;">
@@ -78,13 +78,13 @@
 				</ul>
 			</aside>
 			<aside class="right-off-canvas-menu show-for-small-only">
-				<label class="menu-group-title">Tag</label><br/>
+				<p class="menu-group-title">Tag</p><br/>
 				<ul class="inline-list tags-list">
 					{% for tag in tags %}
 						{% if forloop.counter|divisibleby:2 %}
 							<li><a class="label radius" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
 						{% else %}
-							<li><a class="label secondary radius" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
+							<li><a class="label info radius" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
 						{%endif%}
 					{%endfor%}				
 				</ul>
@@ -103,7 +103,7 @@
 			  <!-- content goes here -->
 			  <div id="left_menu" class="small-12 medium-4 large-3 columns hide-for-small-only">
 				<div id="topic">
-					<label class="menu-group-title">Category</label>
+					<p class="menu-group-title">Category</p>
 					<ul class="accordion" data-accordion>
 					{% for topic in topics %}
 						<li class="accordion-navigation" style="text-align:left;">
@@ -118,13 +118,13 @@
 					</ul>			
 				</div>
 				<div id="tag">
-					<label class="menu-group-title">Tag</label><br/>
+					<p class="menu-group-title">Tag</p><br/>
 					<ul class="inline-list tags-list">
 						{% for tag in tags %}
 							{% if forloop.counter|divisibleby:2 %}
 								<li><a class="label radius" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
 							{% else %}
-								<li><a class="label secondary radius" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
+								<li><a class="label info radius" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
 							{%endif%}
 						{%endfor%}
 					</ul>
@@ -142,9 +142,7 @@
 			  </div>
 			{% block content %}
 			{% endblock %}
-			<div id="footer">
-				
-			</div>
+			{% include "footer.html" %}
 			</section>
 
 			<a class="exit-off-canvas"></a>
@@ -159,7 +157,7 @@
 	$(document).foundation();
 </script>
 <script>
-	$("#left_menu").height($(document).height());
+	$("#left_menu").height($("#main_content").height());
 </script>
 <script>
     function functionShare(shareOn, url, winWidth, winHeight) {

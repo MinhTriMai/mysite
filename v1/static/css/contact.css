@@ -1,0 +1,78 @@
+.errorlist{
+	list-style: none;
+	color: red;
+}
+
+small.error{
+	color: red !important;
+	background: none !important;
+}
+
+@font-face {
+    font-family: "FontAwesome";
+	src: url('/static/fonts/fontawesome-webfont.otf');
+    src: url('/static/fonts/fontawesome-webfont.otf') format('otf'), 
+		 url('/static/fonts/fontawesome-webfont.eot') format('eot'),
+         url('/static/fonts/fontawesome-webfont.woff') format('woff'),
+         url('/static/fonts/fontawesome-webfont.woff2') format('woff2'),
+		 url('/static/fonts/fontawesome-webfont.ttf') format('ttf'),
+         url('/static/fonts/fontawesome-webfont.svg') format('svg');
+}
+
+.contact-ico{
+	  /* display: inline-block; */
+	  font: normal normal normal 14px/1 FontAwesome;
+	  font-size: 36px;
+	  text-rendering: auto;
+	  -webkit-font-smoothing: antialiased;
+	  -moz-osx-font-smoothing: grayscale;  
+	  transform: translate(0, 0);
+}
+
+.list-contact-icons h3 {
+	color: #1673CD;
+}
+
+.list-contact-icons i {
+	  color: #F1FFF7;
+	  width: 60px;
+	  height: 60px;
+	  border-radius: 30px;
+	  background: #404543;
+	  display: block;
+	  margin: 0 auto;
+	  text-align: center;
+	  line-height: 60px;
+	  opacity: 0.8;
+	  
+	  -webkit-transition: all 0.2s ease-out;
+	  transition: all 0.2s ease-out;
+	}
+
+.list-contact-icons i:hover{
+	background-color: #20AA76;
+}
+
+.ico-email:before {
+	content: "\f0e0";
+}
+
+.ico-facebook:before {
+	content: "\f09a";
+}
+
+.ico-github:before {
+	content: "\f09b";
+}
+
+.ico-linkedin:before {
+	content: "\f0e1";	
+}
+
+.ico-youtube:before {
+	content: "\f167";
+}
+
+.ico-googleplus:before {
+	content: "\f0d5";	
+}

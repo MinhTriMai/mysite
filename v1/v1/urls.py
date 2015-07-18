@@ -21,7 +21,8 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 	url(r'^$', 'blog.views.default'),
 	url(r'^about/$', TemplateView.as_view(template_name='about.html')),
-	url(r'^contact/$', TemplateView.as_view(template_name='contact.html')),
+	url(r'^contact/$', 'form.views.contact'),
+    url(r'^thank-you/$', TemplateView.as_view(template_name='thank-you.html')),
 	url(r'^blogs/$', 'blog.views.blogs'),
 	url(r'^blogs/(?P<selected_page>\d+)/?$', 'blog.views.blogs'),
     url(

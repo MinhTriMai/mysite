@@ -1,0 +1,83 @@
+{% load staticfiles %}
+<link type="text/css" rel="Stylesheet" href="{% static 'css/footer.css' %}"/>
+<div class="row"></div> <!-- ADDITIONAL DIV -->
+<div id="footer">
+	<div id="featuredpostslist_wrapper" class="small-12 columns">
+		{% if featured_posts %}
+			<h3 class="featured-posts-title">Featured Posts</h3>
+			<ul id="featuredpostslist">
+				{% for post in featured_posts %}
+				<li class="post-item">
+					<a href="{{post.get_absolute_url}}"><h3>{{post}}</h3></a>
+					<p>{{post.description|safe}}</p>
+				</li>
+				{%endfor%}
+			</ul>
+		{% endif %}
+	</div>
+	<div class="row"></div> <!-- ADDITIONAL DIV -->
+	<h3 class="credit-title">This website uses:</h3>
+	<ul id="credit_region" class="small-block-grid-1 medium-block-grid-3">
+		<li class="text-center">
+			<div class="footer-box">
+				<p>Code behind</p>
+				<h3>Django</h3>
+				<p>The web framework for perfectionists with deadlines</p>
+				<img class="footer-icon" src="/static/images/django-icon.png" alt="foundation"/>
+				<a href="https://www.djangoproject.com/" class="button radius">Explore</a>
+			</div>
+		</li>
+		<li class="text-center">
+			<div class="footer-box">
+				<p>Front-end</p>
+				<h3>Foundation</h3>
+				<p>The most advanced responsive front-end framework in the world</p>
+				<img class="footer-icon" src="/static/images/foundation-icon.png" alt="foundation"/>
+				<a href="http://foundation.zurb.com/" class="button radius">Explore</a>
+			</div>
+		</li>
+		<li>
+			<ul class="no-list-style small-block-grid-1">					
+				<li class="text-center">
+					<div class="footer-box-small">
+						<h4>FontAwesome</h4>
+						<p>The iconic font and CSS toolkit</p>
+						<a href="http://fortawesome.github.io/Font-Awesome/" >Learn more ›</a>
+					</div>
+				</li>
+				<li class="text-center">
+					<div class="footer-box-small">
+						<h4>Highlight.js</h4>
+						<p>Syntax highlighting for the Web</p>
+						<a href="https://highlightjs.org/">Learn more ›</a>
+					</div>
+				</li>					
+			</ul>
+		</li>
+	</ul>
+	<div id="website_info" class="text-center">
+		<div class="social-icon-region columns small-12">
+			<div class="social-icon-wrapper">
+				<ul class="list-social-icons small-block-grid-4">				
+					<li><a href="#"><i class="font-icon-footer icon-fb"></i></a></li>
+					<li><a href="#"><i class="font-icon-footer icon-tw"></i></a></li>
+					<li><a href="#"><i class="font-icon-footer icon-ln"></i></a></li>
+					<li><a href="#"><i class="font-icon-footer icon-gp"></i></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="text-center">
+			<p>Ciscer is created by Walle Mai</p>
+			<a class="hyperlink" href="#">GitHub</a><span>&nbsp;&nbsp;&nbsp;</span><a class="hyperlink" href="#">Hosting</a>
+			<ul class="small-block-grid-1 medium-block-grid-3">
+				<li>
+					<a class="hyperlink" href="#">Email</a><br/>
+					<a class="hyperlink" href="#">Contact</a><br/>
+					<a class="hyperlink" href="#">About</a><br/>
+				</li>
+				<li><img src="{% static 'images/logo.png' %}" /></li>
+				<li><a class="hyperlink" href="#">© {% now "Y" %}<br/>All rights reserved<br/>Privacy Policy</a></li>
+			</ul>
+		</div>
+	</div>
+</div>

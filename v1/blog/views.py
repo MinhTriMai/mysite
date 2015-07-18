@@ -70,7 +70,7 @@ def view_project(request, slug):
         'project': get_object_or_404(Blog, slug=slug)
     })
 	
-def search(request):    
+def search(request):
     errors = []
     if 'q' in request.GET:
         q = request.GET['q']
@@ -83,10 +83,14 @@ def search(request):
             more_results = Blog.objects.all().filter(hiden=False, content__iregex=r"\b{0}\b".format(q))
             results = (first_results | more_results).order_by('-date')
             return render_to_response('search.html', {
-				'results': results,
-				'query': q
-			})
-	return render(request, 'search.html', {
+                'results': results,
+                'query': q
+            })
+    elif 'q' not in request.GET:
+        return render(request, 'search.html', {
+        'errors': errors
+    })
+    return render(request, 'search.html', {
         'errors': errors
     })
 	

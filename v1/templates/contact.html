@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block extrahead %}
+	{% load staticfiles %}
+	<link type="text/css" rel="Stylesheet" href="{% static 'css/contact.css' %}"/>
+{% endblock %}
+{% block content %}	
+	<div class="contact-wrapper">
+		<div class="small-12 medium-8 large-6 columns small-centered text-center">
+			<h1>Mai • xxx xxx xxxx</h1>
+			<p>Send me a message</p>
+			<form action="/contact/" method="post" data-abide>
+				{% csrf_token %}
+				{{ form.non_field_errors }}
+					<div class="field-wrapper">
+						{{ form.sender_name }}
+						<small class="error">Name is required and must be a string at most 100 characters.</small>
+						{{ form.sender_name.errors }}
+					</div>
+					<div class="field-wrapper">
+						{{ form.sender_email }}
+						<small class="error">A valid email address is required.</small>
+						{{ form.sender_email.errors }}
+					</div>
+					<div class="field-wrapper">
+						{{ form.subject }}
+						<small class="error">Subject is required and must be a string at most 100 characters.</small>
+						{{ form.subject.errors }}
+					</div>
+					<div class="field-wrapper">
+						{{ form.message }}
+						<small class="error">Message is required and must be at most 5000 characters.</small>
+						{{ form.message.errors }}
+					</div>
+				<input type="submit" value="Send" class="button round" />
+			</form>
+		</div>
+		<h3>OR you can contact me by:</h3>
+		<ul class="list-contact-icons text-center small-block-grid-2 medium-block-grid-3">				
+			<li>
+				<h3>Email</h3>
+				<i class="ico-email contact-ico"></i>
+				<a href="#">mai@ciscer.com</a>
+			</li>
+			<li>
+				<h3>Facebook</h3>
+				<i class="ico-facebook contact-ico"></i>
+				<a href="#">abcdef</a>
+			</li>
+			<li>
+				<h3>GitHub</h3>
+				<i class="ico-github contact-ico"></i>
+				<a href="#">abcdef</a>
+			</li>
+			<li>
+				<h3>LinkedIn</h3>
+				<i class="ico-linkedin contact-ico"></i>
+				<a href="#">abcdef</a>
+			</li>
+			<li>
+				<h3>YouTube</h3>
+				<i class="ico-youtube contact-ico"></i>
+				<a href="#">abcdef</a>
+			</li>
+			<li>
+				<h3>Google+</h3>
+				<i class="ico-googleplus contact-ico"></i>
+				<a href="#">abcdef</a>
+			</li>			
+		</ul>
+	</div>
+{% endblock %}

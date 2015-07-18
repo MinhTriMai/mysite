@@ -7,19 +7,18 @@
 	<div id="searchresultslist_container" class="text-center">		
 		<form action="/search/" method="get">
 			<div class="row">
-				<div class="small-6 columns small-centered">
+				<div class="small-10 medium-8 large-6 columns small-centered">
 					<div class="row collapse postfix-round">
-						<div class="small-9 columns">
-						  <input type="text" name="q" value="{{query}}" placeholder="Search again...">
+						<div class="small-9 medium-10 large-10 columns">
+						  <input type="text" name="q" value="{{query}}" placeholder="Search..."/>
 						</div>
-						<div class="small-3 columns">
+						<div class="small-3 medium-2 large-2 columns">
 						  <input id="button_search" type="submit" value="&#128269;" class="postfix button"/>
 						</div>
 					</div>					
 				</div>
 			</div>
 		</form>
-		<h1>Search Result</h1>
 		{% if errors %}
 			<ul id="errorslist">
 				{% for error in errors %}
@@ -29,7 +28,7 @@
 		{% endif %}
 		<ul id="searchresultslist">
 			{% if results.all|length = 0 and errors = None %}
-				<p>No result found. Please try again.</p>
+				<h3>No result found. Please try again.</h3>
 			{% elif results.all|length >= 1 %}
 				{% if results.all|length = 1 %}
 					<h3>{{results.all|length}} result found.</h3>

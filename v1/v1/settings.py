@@ -106,3 +106,15 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+# Email settings
+
+EMAIL_HOST = 'mail.ciscer.com'
+
+EMAIL_HOST_USER = 'email-transfer@ciscer.com'
+
+EMAIL_HOST_PASSWORD = '9nq6!2BqI*Y$*yu'
+
+EMAIL_PORT = 26
+
+EMAIL_USE_TLS = True

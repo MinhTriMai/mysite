@@ -4,7 +4,7 @@
 		<h1>{{blog.title}}</h1>
 		<p>{{blog.date}}</p>
 		<p>{{blog.content|safe}}</p>
-		<div id="disqus_thread"></div>
+		<div id="disqus_thread"></div>		
 	</div>
 {% endblock %}
 {% block extrafoot %}
@@ -12,9 +12,14 @@
 <script src="{% static 'js/jquery.resize.js' %}"></script>
 <script type="text/javascript">
 	var myResizeFunc = function () {
-		$("#left_menu").height($(document).height());
+		<!-- $("#left_menu").height($(document).height()); -->
+		<!-- if(document.getElementById('left_menu').offsetHeight < document.getElementById('blog').offsetHeight) -->
+			<!-- $("#left_menu").height($('#blog').height()); -->
+		<!-- else -->
+			<!-- $('#left_menu').css('height', 'auto'); -->
 	};
-	$('#blog').resize(myResizeFunc);
+	<!-- $('#blog').resize(myResizeFunc); -->
+	<!-- $('#left_menu').css('height', 'auto'); -->
 </script>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
