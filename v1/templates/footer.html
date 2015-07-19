@@ -1,10 +1,10 @@
 {% load staticfiles %}
-<link type="text/css" rel="Stylesheet" href="{% static 'css/footer.css' %}"/>
+<link type="text/css" rel="Stylesheet" href="{% static 'css/footer.css' %}?v=1"/>
 <div class="row"></div> <!-- ADDITIONAL DIV -->
 <div id="footer">
 	<div id="featuredpostslist_wrapper" class="small-12 columns">
 		{% if featured_posts %}
-			<h3 class="featured-posts-title">Featured Posts</h3>
+			<h3 class="featured-posts-title">Featured posts</h3>
 			<ul id="featuredpostslist">
 				{% for post in featured_posts %}
 				<li class="post-item">
@@ -31,7 +31,7 @@
 			<div class="footer-box">
 				<p>Front-end</p>
 				<h3>Foundation</h3>
-				<p>The most advanced responsive front-end framework in the world</p>
+				<p>The advanced responsive front-end framework</p>
 				<img class="footer-icon" src="/static/images/foundation-icon.png" alt="foundation"/>
 				<a href="http://foundation.zurb.com/" class="button radius">Explore</a>
 			</div>
@@ -66,8 +66,9 @@
 				</ul>
 			</div>
 		</div>
-		<div class="text-center">
+		<div class="text-center owner-region">
 			<p>Ciscer is created by Walle Mai</p>
+			<p>Released on August 1st, 2015</p>
 			<a class="hyperlink" href="#">GitHub</a><span>&nbsp;&nbsp;&nbsp;</span><a class="hyperlink" href="#">Hosting</a>
 			<ul class="small-block-grid-1 medium-block-grid-3">
 				<li>

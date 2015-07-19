@@ -1,16 +1,14 @@
 {% extends "blog-template.html" %}
 {% block extrahead %}
 	{% load staticfiles %}
-	<link type="text/css" rel="Stylesheet" href="{% static 'css/blogs.css' %}"/>
+	<link type="text/css" rel="Stylesheet" href="{% static 'css/blogs.css' %}?v=2"/>
 {% endblock %}
-{% block content %}
-	<div class="blogs-title">
-		{% if topic %}
-			<h3>Topic: {{topic}}</h3>
-		{% elif tag %}
-			<h3>Tag: {{tag}}</h3>
-		{%endif%}
-	</div>
+{% block content %}	
+	{% if topic %}
+		<div class="blogs-title"><h3>Topic: {{topic}}</h3></div>
+	{% elif tag %}
+		<div class="blogs-title"><h3>Tag: {{tag}}</h3></div>
+	{%endif%}	
 	<div id="blogslist_container" class="small-12 medium-8 large-9 columns">
 		<ul class="example-orbit" data-orbit data-options="animation:slide;
                   pause_on_hover:true;
@@ -39,11 +37,25 @@
 		{%endfor%}
 		</ul>
 		<br/>
-		<ul id="blogslist">
+		<ul id="blogslist" class="medium-block-grid-1 large-block-grid-2">
 			{% for blog in blogs %}
-			<li class="blog-item row">
-				<a href="{{blog.get_absolute_url}}"><h3>{{blog}}</h3></a>
-				<p>{{blog.description|safe}}</p>
+			<li class="blog-item" data-section-name="{{blog}}">
+				<div class="blog-item-title row"><a href="{{blog.get_absolute_url}}"><h3>{{blog}}</h3></a></div>				
+				<div class="blog-item-topic small-8 columns"><a href="{{blog.topic.get_absolute_url}}"><h5>Topic: {{blog.topic}}</h5></a></div>
+				<div class="blog-item-date small-4 columns"><h5>{{blog.date}}</h5></div>
+				<div class="blog-item-description small-12 columns"><p>{{blog.description|safe}}</p></div>
+				<div class="blog-item-tag small-12 columns">
+					<h5>Tag:</h5>
+					<ul class="inline-list tags-list">
+						{% for tag in blog.tag.all %}
+							{% if forloop.counter|divisibleby:2 %}
+								<li><a class="label radius" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
+							{% else %}
+								<li><a class="label info radius" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
+							{%endif%}
+						{%endfor%}				
+					</ul>
+				</div>
 			</li>
 			{%endfor%}
 		</ul>
@@ -60,6 +72,16 @@
 	</div>	
 {% endblock %}
 {% block extrafoot %}
+<script src="{% static 'js/jquery.tiltedpage-scroll.js' %}"></script>
 <script>
+	$(document).ready(function(){
+	  $("#blogslist").tiltedpage_scroll({
+		sectionContainer: "li.blog-item",
+		angle: 30,
+		opacity: true,
+		scale: true,
+		outAnimation: true
+	  });
+	});
 </script>
 {% endblock %}

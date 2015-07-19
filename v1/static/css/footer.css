@@ -40,6 +40,7 @@
 
 .footer-box-small h4, .footer-box-small p{
 	color: #FFFFFF;
+	margin-bottom: 4px;
 }
 
 .footer-box-small{
@@ -73,6 +74,11 @@
 
 .social-icon-region{
 	margin-bottom: -30px;
+}
+
+.owner-region p{
+	color: #2D97E4;
+	margin-bottom: 0;
 }
 
 .social-icon-wrapper{

@@ -1,26 +1,31 @@
 {% extends "blog-template.html" %}
+{% block extrahead %}
+	{% load staticfiles %}
+	<link type="text/css" rel="Stylesheet" href="{% static 'css/blog.css' %}?v=2"/>
+{% endblock %}
 {% block content %}
 	<div id="blog" class="small-12 medium-8 large-9 columns">
-		<h1>{{blog.title}}</h1>
-		<p>{{blog.date}}</p>
-		<p>{{blog.content|safe}}</p>
+		<div class="row"></div>
+		<div class="blog-date small-3 columns"><p>{{blog.date}}</p></div>
+		<div class="blog-title small-9 columns"><h1>{{blog}}</h1></div>
+		<div class="blog-topic small-12 columns"><a href="{{blog.topic.get_absolute_url}}"><h3>{{blog.topic}}</h3></a></div>
+		<div class="blog-content small-12 columns"><p>{{blog.content|safe}}</p></div>
+		<div class="blog-tag row">
+			<h3>Tags:</h3>
+			<ul class="inline-list tags-list">
+				{% for tag in blog.tag.all %}
+					{% if forloop.counter|divisibleby:2 %}
+						<li><a class="label radius" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
+					{% else %}
+						<li><a class="label info radius" href="{{tag.get_absolute_url}}">{{tag}}</a></li>
+					{%endif%}
+				{%endfor%}				
+			</ul>
+		</div>
 		<div id="disqus_thread"></div>		
 	</div>
 {% endblock %}
 {% block extrafoot %}
-{% load staticfiles %}
-<script src="{% static 'js/jquery.resize.js' %}"></script>
-<script type="text/javascript">
-	var myResizeFunc = function () {
-		<!-- $("#left_menu").height($(document).height()); -->
-		<!-- if(document.getElementById('left_menu').offsetHeight < document.getElementById('blog').offsetHeight) -->
-			<!-- $("#left_menu").height($('#blog').height()); -->
-		<!-- else -->
-			<!-- $('#left_menu').css('height', 'auto'); -->
-	};
-	<!-- $('#blog').resize(myResizeFunc); -->
-	<!-- $('#left_menu').css('height', 'auto'); -->
-</script>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'ciscer';    

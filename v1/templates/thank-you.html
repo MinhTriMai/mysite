@@ -2,7 +2,7 @@
 {% block extrahead %}
 	{% load staticfiles %}
 	<link type="text/css" rel="Stylesheet" href="{% static 'css/thank-you.css' %}"/>
-	<META HTTP-EQUIV="Refresh" CONTENT="5; URL=http://ciscer.com/contact/"> 
+	<META HTTP-EQUIV="Refresh" CONTENT="5; URL=/contact/"> 
 {% endblock %}
 {% block content %}
 	<div class="message-wrapper text-center">
@@ -11,5 +11,6 @@
 		{% elif request.GET.m = 'fail' %}
 			<h3 class="message">There is an error occurs. Please try again.</h3>
 		{% endif %}
+		<p>You will be redirected to the contact page within 5 seconds.</p>
 	</div>
 {% endblock %}

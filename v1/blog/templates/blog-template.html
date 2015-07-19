@@ -11,7 +11,7 @@
 	<link rel="shortcut icon" href="/static/images/icon.png">
 	<link rel="apple-touch-icon" href="/static/images/icon.png">
 	{% load staticfiles %}
-	<link type="text/css" rel="Stylesheet" href="{% static 'css/blog-template.css' %}"/>
+	<link type="text/css" rel="Stylesheet" href="{% static 'css/blog-template.css' %}?v=1"/>
 	<link type="text/css" rel="Stylesheet" href="{% static 'css/foundation/foundation.css' %}" />
 	{% block extrahead %}
 	{% endblock %}
@@ -35,6 +35,7 @@
 					<li class="menu-item"><a href="/projects/">Projects</a></li>
 					<li class="menu-item"><a href="/blogs/">Blogs</a></li>
 					<li class="menu-item"><a href="/contact/">Contact</a></li>
+					<!-- <li class="menu-item"><a href="/search/">&#128269;</a></li> -->
 				</ul>            
 			</section>
 		</nav>
