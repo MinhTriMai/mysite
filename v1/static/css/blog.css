@@ -1,7 +1,61 @@
 #blog .blog-date{
-	
+	margin-top: -9px;
+}
+
+.blog-date-wrapper{
+	  -webkit-background-size: auto;
+	  background-size: auto;
+	  position: relative;
+	  background: rgb(99, 168, 236);
+	  width: 92px;
+	  margin: 0 10px 15px 14px;
+}
+
+.blog-date-wrapper:before, .blog-date-wrapper:after{
+    border-style: solid;
+    border-width: 20px 46px;
+    content: "";
+    height: 0;
+    left: 0;
+    position: absolute;
+}
+
+.blog-date-wrapper:before {
+  border-color: rgba(0, 0, 0, 0.2) transparent transparent;
+  bottom: -40px;
+}
+
+.blog-date-wrapper:after {
+  border-color: rgb(99, 168, 236) transparent transparent;
+}
+
+.blog-date-wrapper .date-label{
+	  display: block;
+	  font-size: 12px;
+	  margin: 9px 5px 5px 5px;
+	  padding-bottom: 7px;
+	  text-transform: uppercase;
+	  border-bottom: 1px solid lightgray;
+	  color: #FFF;
+}
+
+.blog-date-wrapper .month{
+	  text-transform: uppercase;
+	  font-size: 20px;
+	  line-height: 28px;
+}
+
+.blog-date-wrapper .day{
+	  font-size: 36px;
+	  line-height: 40px;
+	  display: block;
+	  color: #2635C8;
 }
 
 #blog .blog-topic{
 	text-align: right;
+}
+
+#blog .blog-title{
+	margin-top: 10px;
 }

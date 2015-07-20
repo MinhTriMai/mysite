@@ -6,11 +6,15 @@
 {% block content %}
 	<div id="blog" class="small-12 medium-8 large-9 columns">
 		<div class="row"></div>
-		<div class="blog-date small-3 columns"><p>{{blog.date}}</p></div>
-		<div class="blog-title small-9 columns"><h1>{{blog}}</h1></div>
+		<div class="blog-date-wrapper text-center left">
+			<span class="date-label">Created On</span>                       
+			<span class="month">{{blog.date|date:"M"}}</span>
+			<span class="day">{{blog.date.day}}</span>
+		</div>
+		<div class="blog-title"><h1>{{blog}}</h1></div>
 		<div class="blog-topic small-12 columns"><a href="{{blog.topic.get_absolute_url}}"><h3>{{blog.topic}}</h3></a></div>
 		<div class="blog-content small-12 columns"><p>{{blog.content|safe}}</p></div>
-		<div class="blog-tag row">
+		<div class="blog-tag small-12 columns"">
 			<h3>Tags:</h3>
 			<ul class="inline-list tags-list">
 				{% for tag in blog.tag.all %}
