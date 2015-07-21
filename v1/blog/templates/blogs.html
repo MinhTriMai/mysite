@@ -41,8 +41,8 @@
 			{% for blog in blogs %}
 			<li class="blog-item" data-section-name="{{blog}}">
 				<div class="blog-item-title row"><a href="{{blog.get_absolute_url}}"><h3>{{blog}}</h3></a></div>				
-				<div class="blog-item-topic small-8 columns"><a href="{{blog.topic.get_absolute_url}}"><h5>Topic: {{blog.topic}}</h5></a></div>
-				<div class="blog-item-date small-4 columns"><h5>{{blog.date}}</h5></div>
+				<div class="blog-item-topic small-7 columns"><a href="{{blog.topic.get_absolute_url}}"><h5>Topic: {{blog.topic}}</h5></a></div>
+				<div class="blog-item-date small-5 columns"><h5>{{blog.date}}</h5></div>
 				<div class="blog-item-description small-12 columns"><p>{{blog.description|safe}}</p></div>
 				<div class="blog-item-tag small-12 columns">
 					<h5>Tag:</h5>
